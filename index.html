@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skripsi - Sistem Irigasi Cabai Cerdas</title>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -42,6 +43,27 @@
                 <div id="weatherPredictionToday" class="sensor-value">Hari ini: Tidak ada prediksi</div>
                 <div id="weatherPredictionTomorrow" class="sensor-value">Besok: Tidak ada prediksi</div>
             </div>
+
+            <div class="sensor-card irrigation-status">
+                <i class="fas fa-tint"></i>
+                <div class="sensor-label">Status Irigasi</div>
+                <div id="irrigationStatus" class="sensor-value">Menunggu...</div>
+                <div id="irrigationDuration" class="sensor-detail">Durasi: 0 detik</div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-controls">
+                <button onclick="clearChartData()" class="reset-button">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+            <div class="chart-card">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <canvas id="humidityChart"></canvas>
+            </div>
         </div>
 
         <!-- Informative Sections -->
@@ -55,14 +77,14 @@
                     <li>Kontrol irigasi otomatis berbasis sensor</li>
                     <li>Pemantauan suhu (optimal: 24-28°C) dan kelembapan udara</li>
                 </ul>
-                <p>Manfaat sistem irigasi cerdas untuk tanaman cabai:</p>
+                <p>Potensi manfaat yang diharapkan dari sistem irigasi cerdas untuk tanaman cabai:</p>
                 <ul>
-                    <li>Mengoptimalkan pertumbuhan dan hasil panen</li>
-                    <li>Mencegah penyakit akibat kelebihan/kekurangan air</li>
-                    <li>Menghemat penggunaan air hingga 40%</li>
-                    <li>Mengurangi tenaga kerja untuk penyiraman manual</li>
+                    <li>Membantu mengatur penyiraman secara otomatis sesuai kebutuhan tanaman</li>
+                    <li>Memantau kondisi kelembaban tanah secara real-time</li>
+                    <li>Mengurangi risiko tanaman kekeringan atau kebanjiran</li>
+                    <li>Efisiensi dalam penggunaan air dan tenaga kerja</li>
                 </ul>
-                <img src="chili-plant.jpg" alt="Tanaman Cabai">
+                <!-- <img src="chili-plant.jpg" alt="Tanaman Cabai"> -->
             </div>
         </div>
 
@@ -94,7 +116,7 @@
                         </ul>
                     </li>
                 </ul>
-                <img src="iot-sensors.jpg" alt="Sensor IoT">
+                <!-- <img src="iot-sensors.jpg" alt="Sensor IoT"> -->
             </div>
         </div>
 
@@ -106,7 +128,7 @@
                 <ul>
                     <li>Arsitektur model:
                         <ul>
-                            <li>LSTM (Long Short-Term Memory) layers</li>
+                            <li>SimpleRNN layers</li>
                             <li>Dropout layers untuk mencegah overfitting</li>
                             <li>Dense layers untuk output prediksi</li>
                         </ul>
@@ -115,18 +137,18 @@
                         <ul>
                             <li>Data historis cuaca</li>
                             <li>Data sensor real-time (suhu, kelembapan)</li>
-                            <li>Data API cuaca dari layanan meteorologi</li>
+                            <li>Data API cuaca dari layanan Visual Crossing</li>
                         </ul>
                     </li>
                     <li>Keunggulan sistem:
                         <ul>
-                            <li>Akurasi prediksi hingga 85%</li>
-                            <li>Pembaruan prediksi setiap 6 jam</li>
+                            <li>Akurasi prediksi hingga 90%</li>
+                            <li>Pembaruan prediksi setiap 1 kali sehari</li>
                             <li>Adaptif terhadap perubahan pola cuaca</li>
                         </ul>
                     </li>
                 </ul>
-                <img src="rnn-prediction.jpg" alt="Prediksi Cuaca dengan RNN">
+                <!-- <img src="rnn-prediction.jpg" alt="Prediksi Cuaca dengan RNN"> -->
             </div>
         </div>
     </div>
